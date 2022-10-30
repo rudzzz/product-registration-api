@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerCOnfig {
+public class SwaggerConfig {
 	@Bean
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -23,18 +23,5 @@ public class SwaggerCOnfig {
 				.paths(regex("/api/products.*")
 				.build()
 				.apiInfo(metaInfo());
-	}
-	
-	private ApiInfo metaInfo() {
-		ApiInfo apiInfo = new ApiInfo(
-			"Products API REST",
-			"API REST for register new products",
-			"1.0",
-			"Terms of Service",
-			new Contact("Acir Ruson", "https://github.com/rudzzz"),
-			"Apache License Version 2.0",
-			"https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
-		);
-		return apiInfo;
 	}
 }
